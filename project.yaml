@@ -12,9 +12,8 @@ actions:
         cohort: output/input.csv
 
   run_model:
-    run: stata-mp:latest analysis/model.do
+    run: python:latest python analysis/count_occurrences.py
     needs: [generate_study_population]
     outputs:
       moderately_sensitive:
-        log: logs/model.log
-
+        log: output/counts.json
